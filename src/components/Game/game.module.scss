@@ -5,6 +5,7 @@
   background-color: $green-color;
   border-radius: 10px;
   position: relative;
+  min-height: 260px;
   cursor: pointer;
 }
 
@@ -22,12 +23,12 @@
 }
 
 .title {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 122%;
   margin-bottom: 10px;
   max-width: 160px;
   height: 48px;
-  flex: 1 1 auto;;
+  flex: 1 1 auto;
 }
 
 .released {
