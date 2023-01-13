@@ -1,5 +1,4 @@
-/* eslint-disable spaced-comment */
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { BadRequest } from './components/BadRequest/BadRequest';
 import { GamesList } from './components/GamesList/GamesList';
@@ -11,7 +10,6 @@ import  * as gamesActions from './features/games';
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage] = useState(4);
-  const [title] = useState('Steam')
 
   const dispatch = useAppDispatch();
   const { games, loading, error } = useAppSelector(state => state.games);
