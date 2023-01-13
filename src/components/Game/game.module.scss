@@ -24,15 +24,16 @@
 .title {
   font-size: 20px;
   line-height: 122%;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   max-width: 160px;
   height: 48px;
+  flex: 1 1 auto;;
 }
 
 .released {
   font-size: 15px;
   line-height: 122%;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
 }
 
 .row {

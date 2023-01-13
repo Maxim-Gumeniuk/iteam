@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as LikedGamesActions } from '../../features/likeGames';
@@ -9,7 +9,6 @@ import styles from './LikeList.module.scss';
 export const LikeList = () => {
 const { likedGames } = useAppSelector(state => state.likedGames)
 const dispatch = useAppDispatch();
-
 
 const clearAll = () => {
   dispatch(LikedGamesActions.clearGames());

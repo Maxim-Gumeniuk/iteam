@@ -6,7 +6,7 @@ type likedGamesState = {
 }
 
 const initialState: likedGamesState = {
-  likedGames: [],
+  likedGames: localStorage.getItem('likedGames') ? JSON.parse(localStorage.getItem('likedGames') || '') : [],
 };
 
 export const LikedGamesSlice = createSlice({
@@ -15,12 +15,14 @@ export const LikedGamesSlice = createSlice({
   reducers: {
     addGame: (state, action: PayloadAction<Games>) => {
       state.likedGames.push(action.payload);
-      localStorage.setItem('likedGames', JSON.stringify(state.likedGames.map(item => item)));
+      localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },
 
     removeGame: (state, action: PayloadAction<Games>) => {
-      state.likedGames = state.likedGames.filter(item => item.appId !== action.payload.appId);
-      localStorage.setItem('likedGames', JSON.stringify(state.likedGames.map(item => item)));
+      const filtered = state.likedGames.filter(item => item.appId !== action.payload.appId);
+
+      state.likedGames = filtered;
+      localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },
 
     clearGames: (state) => {

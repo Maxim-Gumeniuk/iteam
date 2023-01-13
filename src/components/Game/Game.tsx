@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { actions as IdAction} from '../../features/games';
+import { actions, actions as IdAction} from '../../features/games';
 import { actions as LikedActions } from '../../features/likeGames';
 import { Games } from '../../types/games';
 import styles from './game.module.scss';
@@ -12,24 +12,20 @@ type Props = {
 
 export const Game: React.FC<Props> = ({ game }) => {
   const [like, setLike] = useState(false);
-  const likedGames = useAppSelector(state => state.likedGames);
   const dispatch = useAppDispatch();
 
   const addGame = (game: Games) => {
     dispatch(LikedActions.addGame(game));
   }
 
-  const removeGame = (game: Games) => {
+  const removeGame = (game: Games, id:number) => {
     dispatch(LikedActions.removeGame(game));
+    dispatch(actions.setId(id));
   }
 
   const addId = (param: number) => {
     dispatch(IdAction.setId(param));
   }
-
-  useEffect(() => {
-    localStorage.setItem('likedGames', JSON.stringify(likedGames));
-  }, [likedGames]);
 
   const handleLIke = () => {
     setLike(prev => !prev);
@@ -66,7 +62,7 @@ export const Game: React.FC<Props> = ({ game }) => {
                     className={styles.heart}
                     src={require('../../images/red-heart.png')}
                     alt="heart"
-                    onClick={() => removeGame(game)}
+                    onClick={() => removeGame(game, +game.appId)}
                   />
                 )
                 : (
