@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 import { actions, actions as IdAction} from '../../features/games';
 import { actions as LikedActions } from '../../features/likeGames';
 import { Games } from '../../types/games';

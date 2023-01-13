@@ -34,7 +34,6 @@ export const gamesSlice = createSlice({
     },
     search: (state, action: PayloadAction<string>) => {
         state.filter = state.games.filter(game => game.title.toLowerCase() === action.payload.toLowerCase());
-        console.log(state.filter);
         if (action.payload.trim().length === 0) {
           state.filter = state.games;
         }

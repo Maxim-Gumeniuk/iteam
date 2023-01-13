@@ -17,14 +17,12 @@ export const LikedGamesSlice = createSlice({
       state.likedGames.push(action.payload);
       localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },
-
     removeGame: (state, action: PayloadAction<Games>) => {
       const filtered = state.likedGames.filter(item => item.appId !== action.payload.appId);
 
       state.likedGames = filtered;
       localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },
-
     clearGames: (state) => {
       state.likedGames = [];
     }
