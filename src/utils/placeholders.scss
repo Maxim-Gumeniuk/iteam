@@ -1,0 +1,32 @@
+@import './variables.scss';
+
+%center-position {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%input-styles {
+  height: $input-height;
+  background-color: $grey-color;
+  border: 1px solid $grey-color;
+  border-radius: 10px;
+}
+
+%text-styles {
+  font-size: 14px;
+  line-height: 132%;
+  color: $white-color;
+}
+
+%background-image-options {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+%range-setup {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}

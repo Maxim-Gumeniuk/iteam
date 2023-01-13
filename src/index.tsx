@@ -4,16 +4,25 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import './index.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Details } from './components/Details/Details';
+import { LikeList } from './components/LikeList/LikeList';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="like" element={<LikeList />} />
+        </Routes>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

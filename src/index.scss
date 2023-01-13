@@ -1,0 +1,57 @@
+@import '../node_modules/scss-reset/src/scss/_reset.scss';
+@import './utils/variables.scss';
+@import './utils/placeholders.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+html,body {
+  background-color: $background-color;
+  font-family: Inter, serif;
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.footer {
+  padding-top: 12px;
+  padding-bottom: 19px;
+}
+.container {
+  padding: 0px 29px 0px 25px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input[type="range"] {
+  @extend %range-setup;
+  background: $range-color;
+  cursor: pointer;
+  width: 24.13px;
+  height: 3px;
+  outline: none;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    @extend %range-setup;
+
+    width: 6px;
+    height: 6px;
+    border: 2px solid $range-color;
+    border-radius: 50%;
+    background-color: $search-background;
+  }
+}
+
+.header {
+  margin-bottom: 15px;
+}

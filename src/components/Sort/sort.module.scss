@@ -1,0 +1,39 @@
+@import '../../utils/variables.scss';
+@import '../../utils/mixins.scss';
+
+.sort {
+  background-color: $search-background;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 6px;
+  cursor: pointer;
+  position: relative;
+
+  @include onDesktop {
+    margin-right: 12px;
+  }
+
+}
+
+.input {
+  display: block;
+  background-color: #000;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.open {
+  position: absolute;
+  z-index: 3;
+  padding: 5px 12px;
+  min-width: 144px;
+  min-height: 53px;
+  top: 36px;
+  right: 0;
+  background-color: $search-background;
+  border-radius: 10px;
+}
+
+.text {
+  color: $white-color;
+}

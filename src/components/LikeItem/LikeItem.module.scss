@@ -1,0 +1,71 @@
+@import '../../utils/variables.scss';
+
+.card {
+  color: $white-color;
+  background-color: $green-color;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.image {
+  min-width: 253px;
+  height: 100px;
+  padding-bottom: 6px;
+  border-radius: 10px;
+}
+
+.body {
+  padding: 0 8px 8px 11px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 122%;
+  margin-bottom: 6px;
+  max-width: 160px;
+  height: 48px;
+}
+
+.released {
+  font-size: 15px;
+  line-height: 122%;
+  margin-bottom: 5%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box {
+  padding: 3px;
+  background-color: $grey-color;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  margin-top: -6px;
+  position: absolute;
+  left: 78%;
+}
+
+.border {
+  width: 35px;
+  height: 35px;
+  border: 2px solid $white-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play {
+  padding-left: 3px;
+}

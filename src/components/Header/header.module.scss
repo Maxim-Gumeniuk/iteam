@@ -1,0 +1,15 @@
+@import '../../utils/placeholders.scss';
+@import '../../utils/variables.scss';
+@import '../../utils/mixins.scss';
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  flex-wrap: wrap;
+
+  @include onDesktop {
+    flex-wrap: nowrap;
+  }
+}

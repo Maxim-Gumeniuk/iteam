@@ -1,0 +1,41 @@
+@import '../../utils/placeholders.scss';
+@import '../../utils/variables.scss';
+@import '../../utils/mixins.scss';
+
+.combine {
+  height: 31px;
+  background-color: $search-background;
+  padding: 0px 16px;
+  border-radius: 10px;
+
+  @include onDesktop {
+    order: 2;
+    min-width: 134px;
+  }
+}
+
+.default {
+  @extend %center-position;
+}
+
+.text {
+  color: $white-color;
+  font-size: 12px;
+  line-height: 150%;
+  cursor: pointer;
+
+  &.right {
+    margin-right: 11px;
+  }
+}
+
+.logo {
+  max-width: 50%;
+  padding-left: 9px;
+  max-height: 35px;
+  margin-bottom: 7px;
+
+  @include onDesktop {
+    margin-bottom: -px;
+  }
+}

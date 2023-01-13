@@ -1,0 +1,27 @@
+@import '../../utils/variables.scss';
+@import '../../utils/placeholders.scss';
+@import '../../utils/mixins.scss';
+
+.search {
+  flex: 1 1 100%;
+  @extend %input-styles;
+  margin-bottom: 8px;
+  padding: 0 15px;
+  color: $white-color;
+  font-size: 12px;
+
+  @include onDesktop {
+    flex: 1 1 50%;
+    margin-bottom: 0px;
+    margin-right: 12px;
+  }
+
+  @include onDesktop {}
+  &::placeholder {
+    color: $white-color;
+    @extend %text-styles;
+    background-image: url(../../images/search.svg);
+    @extend %background-image-options;
+    background-position: right 9px center;
+  }
+}

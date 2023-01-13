@@ -1,0 +1,84 @@
+@import '../../utils/variables.scss';
+@import '../../utils/placeholders.scss';
+@import '../../utils/mixins.scss';
+
+.row {
+  display: flex;
+}
+
+.price {
+  flex: 1 1 70%;
+  @extend %input-styles;
+  cursor: pointer;
+  background-image: url(../../images/arrow-down.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+
+  @include onDesktop {
+    flex: 1 1 20%;
+    order: 1;
+    margin-right: 15px;
+  }
+}
+
+.openPrice {
+  flex: 1 1 70%;
+  @extend %input-styles;
+  cursor: pointer;
+  background-image: url(../../images/arrow-up.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  position: relative;
+  
+  @include onDesktop {
+    flex: 1 1 20%;
+    order: 1;
+    margin-right: 15px;
+  }
+}
+
+.text {
+  @extend %center-position;
+  @extend %text-styles;
+  padding-left: 25px;
+}
+
+.open {
+  @extend %text-styles;
+  background-color: $grey-color;
+  border-radius: 10px;
+  height: 66px;
+  padding: 10px 16px 14px 18px;
+  margin-top: 7px;
+  position: absolute;
+  z-index: 3;
+  top: 100%;
+  right: 0;
+  left: 0;
+}
+
+.firstOption {
+  margin-bottom: 4px;
+  background: url(../../images/price.svg) right 0px center no-repeat, url(../../images/dot.png) right 11px bottom 10px no-repeat ;
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: 25%;
+  right: 10.3%;
+  height: 3px;
+  width: 3px;
+
+  @include onDesktop {
+    right: 11.5%;
+  }
+}
+
+.secondOption {
+  background-image: url(../../images/date.svg);
+  @extend %background-image-options;
+  background-position: right 0px center;
+}
