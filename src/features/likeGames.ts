@@ -14,6 +14,7 @@ export const LikedGamesSlice = createSlice({
   initialState,
   reducers: {
     addGame: (state, action: PayloadAction<Games>) => {
+      
       state.likedGames.push(action.payload);
       localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },

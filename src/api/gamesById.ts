@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = 'a654ea625cmsh1001ea322ff7839p141828jsn0c595b5379b3';
+const API_KEY = '694e8a3729msh1745f9f80808319p1f7cf7jsn67989a5c9376';
 const API_HOST = 'steam2.p.rapidapi.com';
 
 const headers = {

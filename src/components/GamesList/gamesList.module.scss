@@ -1,14 +1,15 @@
 @import '../../utils/mixins.scss';
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 65%);
+  
+  gap: 22px;
   justify-content: center;
   gap: 15px;
   flex-direction: column;
 
   @include onDesktop {
-    flex-direction: row;
+    grid-template-columns: repeat(4,20%);
   }
 }

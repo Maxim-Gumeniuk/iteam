@@ -25,6 +25,7 @@ export const Game: React.FC<Props> = ({ game }) => {
 
   const addId = (param: number) => {
     dispatch(IdAction.setId(param));
+
   }
 
   const handleLIke = () => {
