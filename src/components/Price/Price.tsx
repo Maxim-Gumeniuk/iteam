@@ -4,11 +4,10 @@ import classNames from 'classnames';
 
 type Props = {
   setOpen: (param: any) => void;
-  open: boolean;
   setOpenForDate: (param: any) => void;
 }
 
-export const Price: React.FC<Props> = ({ setOpen, open, setOpenForDate}) => {
+export const Price: React.FC<Props> = ({ setOpen, setOpenForDate}) => {
   const [modal, setModal] = useState(false);
   const handleOpen = () => {
     setModal((prev: any) => !prev);

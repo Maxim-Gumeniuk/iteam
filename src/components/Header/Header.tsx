@@ -18,7 +18,6 @@ export const Header: React.FC<Props> = ({ setCurrentPage }) => {
       <Search />
       <Price 
         setOpen={setOpen} 
-        open={open} 
         setOpenForDate={setOpenForDate} 
       />
       <Sort 

@@ -17,8 +17,8 @@ export const Game: React.FC<Props> = ({ game }) => {
 
   const addGame = (game: Games, event:React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     event.preventDefault();
-
     dispatch(LikedActions.addGame(game));
+    dispatch(LikedActions.addFavouriteGame(game));
   }
 
   useEffect(() => {
@@ -32,6 +32,7 @@ export const Game: React.FC<Props> = ({ game }) => {
     event.preventDefault();
     dispatch(LikedActions.removeGame(game));
     dispatch(actions.setId(id));
+    dispatch(LikedActions.removeFavouriteGame(game));
   }
 
   const addId = (param: number) => {

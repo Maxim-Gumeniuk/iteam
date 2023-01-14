@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as LikedGamesActions } from '../../features/likeGames';
@@ -7,27 +7,21 @@ import { LikeItem } from '../LikeItem/LikeItem';
 import styles from './LikeList.module.scss';
 
 export const LikeList = () => {
-const [favourite, setFavourite] = useState<Games[]>([]);
-const { likedGames } = useAppSelector(state => state.likedGames)
-const { games } = useAppSelector(state => state.games)
+const { favouriteGame } = useAppSelector(state => state.likedGames);
 const dispatch = useAppDispatch();
 
 const clearAll = () => {
   dispatch(LikedGamesActions.clearGames());
+  dispatch(LikedGamesActions.clearGamesFavourite());
   localStorage.clear()
 }
 
-useEffect(() => {
-  const filterdGames = games.filter((game: Games) => likedGames.find((item: string) => game.appId === item));
-  setFavourite(filterdGames);
-},[likedGames])
-
-  return (
-    <>
-      <Link to='/' className={styles.back}>Back</Link>
-      <p className={styles.clear} onClick={() => clearAll()}>Clear all</p>
+return (
+  <>
+    <Link to='/' className={styles.back}>Back</Link>
+    <p className={styles.clear} onClick={() => clearAll()}>Clear all</p>
       <ul className={styles.row}>
-        {favourite.map((item: Games) => (
+        {favouriteGame.map((item: Games) => (
           <li key={item.appId} className={styles.item}><LikeItem item={item}/></li>
         ))}
       </ul>

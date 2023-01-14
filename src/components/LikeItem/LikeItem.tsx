@@ -20,6 +20,8 @@ export const LikeItem:React.FC<Props> = ({ item }) => {
   const removeGame = (gameId: Games, event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     event.preventDefault();
     dispatch(LikedAction.removeGame(gameId));
+    dispatch(LikedAction.removeFavouriteGame(gameId));
+    
   }
   return (
     <div className={styles.card}>
