@@ -15,7 +15,6 @@ export const LikeItem:React.FC<Props> = ({ item }) => {
 
   const addId = (param: number) => {
     dispatch(IdAction.setId(param));
-  
   }
 
   const removeGame = (gameId: Games, event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {

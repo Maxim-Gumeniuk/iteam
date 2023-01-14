@@ -17,7 +17,6 @@ const clearAll = () => {
   localStorage.clear()
 }
 
-console.log(likedGames)
 useEffect(() => {
   const filterdGames = games.filter((game: Games) => likedGames.find((item: string) => game.appId === item));
   setFavourite(filterdGames);

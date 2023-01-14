@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import  * as gameDetails from '../../features/gameDeatails';
 import { BadRequest } from '../BadRequest/BadRequest';
@@ -11,9 +11,6 @@ export const Details: React.FC = () => {
   const {details, loading, error} = useAppSelector(state => state.details);
   const { id } = useAppSelector(state => state.games);
   const dispatch = useAppDispatch();
-  const prevRoute = useLocation();
-
-  console.log(prevRoute)
 
   useEffect(() => {
     if (id) {
