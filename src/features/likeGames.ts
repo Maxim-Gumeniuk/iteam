@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Games } from '../types/games';
 
 type likedGamesState = {
-  likedGames: Games[],
+  likedGames: string[],
 }
 
 const initialState: likedGamesState = {
@@ -14,13 +14,11 @@ export const LikedGamesSlice = createSlice({
   initialState,
   reducers: {
     addGame: (state, action: PayloadAction<Games>) => {
-      
-      state.likedGames.push(action.payload);
+      state.likedGames.push(action.payload.appId);
       localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },
     removeGame: (state, action: PayloadAction<Games>) => {
-      const filtered = state.likedGames.filter(item => item.appId !== action.payload.appId);
-
+      const filtered = state.likedGames.filter(item => item !== action.payload.appId);
       state.likedGames = filtered;
       localStorage.setItem('likedGames', JSON.stringify(state.likedGames));
     },

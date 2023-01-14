@@ -11,8 +11,7 @@ import { LikeList } from './components/LikeList/LikeList';
 
 
 const container = document.getElementById('root')!;
-const root = createRoot(container);
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,

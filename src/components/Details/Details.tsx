@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import  * as gameDetails from '../../features/gameDeatails';
 import { BadRequest } from '../BadRequest/BadRequest';
@@ -11,6 +11,7 @@ export const Details: React.FC = () => {
   const {details, loading, error} = useAppSelector(state => state.details);
   const { id } = useAppSelector(state => state.games);
   const dispatch = useAppDispatch();
+  const prevRoute = useLocation();
 
   useEffect(() => {
     if (id) {
@@ -18,7 +19,6 @@ export const Details: React.FC = () => {
     }
     return;
   },[]);
-
 
   if (loading) {
     return <Loader />;
@@ -34,7 +34,7 @@ export const Details: React.FC = () => {
 
   return(
     <>
-      <Link to='/' className={styles.back}>Back</Link>
+      <Link to={prevRoute.pathname ==='/' ? '/' : '/like'} className={styles.back}>Back</Link>
         {details && (
           <Link to='/details' onClick={() => addId(+details!.appId)}>
             <div className={styles.box}>
