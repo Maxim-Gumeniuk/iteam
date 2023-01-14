@@ -1,0 +1,62 @@
+@import '../../utils/variables.scss';
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 253px;
+  min-height: 200px;
+  position: relative;
+  top: 50%;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  border: 2px solid $loader-color;
+  transform: rotate(45deg);
+  position: absolute;
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-play-state: running;
+  animation-delay: 0s;
+
+}
+
+.second {
+  width: 80px;
+  height: 80px;
+  border: 2px solid $loader-color;
+  transform: rotate(-90deg);
+  position: absolute;
+  animation-name: reverse-rotate;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-play-state: running;
+  animation-delay: 0s;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(315deg);
+  }
+}
+
+@keyframes reverse-rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
