@@ -7,9 +7,13 @@
   position: relative;
   cursor: pointer;
   min-width: 253px;
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.04);
+  }
 
 }
-
 
 .image {
   min-width: 253px;

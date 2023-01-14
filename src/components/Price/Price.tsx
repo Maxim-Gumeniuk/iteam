@@ -9,16 +9,20 @@ type Props = {
 
 export const Price: React.FC<Props> = ({ setOpen, setOpenForDate}) => {
   const [modal, setModal] = useState(false);
+  const [title, setTitle] = useState('Price');
   const handleOpen = () => {
     setModal((prev: any) => !prev);
   }
 
   const opened = () => {
     setOpen((prev: any) => !prev);
+    setTitle('Price');
+    
   }
 
   const openByDate = () => {
     setOpenForDate((prev: any) => !prev);
+    setTitle('Publish Date');
   }
   return (
     <>
@@ -32,7 +36,7 @@ export const Price: React.FC<Props> = ({ setOpen, setOpenForDate}) => {
         }
         onClick={() => handleOpen()}
       >
-        <p className={styles.text}>Price</p>
+        <p className={styles.text}>{title}</p>
         {
         modal && (
            <div className={styles.open}>

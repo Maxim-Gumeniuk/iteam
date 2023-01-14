@@ -6,6 +6,11 @@
   display: inline-block;
   padding: 20px;
   text-transform: uppercase;
+  transition: color 0.5s linear;
+
+  &:hover {
+    color: $hover-color;
+  }
 }
 
 .row {
@@ -15,6 +20,7 @@
   justify-content: center;
   gap: 15px;
   flex-direction: column;
+  padding-bottom: 20px;
 
   @include onDesktop {
     flex-direction: row;
@@ -28,4 +34,9 @@
   top: 20px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: color 0.5s linear;
+
+  &:hover {
+    color: $hover-color;
+  }
 }

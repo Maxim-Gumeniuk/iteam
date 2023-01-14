@@ -11,12 +11,15 @@ export const Details: React.FC = () => {
   const {details, loading, error} = useAppSelector(state => state.details);
   const { id } = useAppSelector(state => state.games);
   const dispatch = useAppDispatch();
-
+ 
   useEffect(() => {
     if (id) {
       dispatch(gameDetails.initDetails(id));
     }
+    console.log(details)
     return;
+
+
   },[]);
 
   if (loading) {

@@ -25,6 +25,8 @@ function App() {
     dispatch(gamesActions.init());
   }, []);
 
+  console.log(games)
+
   if (loading) {
     return <Loader />;
   }
@@ -47,6 +49,8 @@ function App() {
             gamesPerPage={gamesPerPage}
             totalGames={games.length}
             paginate={paginate}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
         </footer>
       </div>
