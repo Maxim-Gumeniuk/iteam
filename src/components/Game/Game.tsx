@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions, actions as IdAction} from '../../features/games';
 import { actions as LikedActions } from '../../features/likeGames';
 import { Games } from '../../types/games';
@@ -13,12 +13,20 @@ type Props = {
 export const Game: React.FC<Props> = ({ game }) => {
   const [like, setLike] = useState(false);
   const dispatch = useAppDispatch();
+  const { likedGames } = useAppSelector(state => state.likedGames)
 
   const addGame = (game: Games, event:React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     event.preventDefault();
 
     dispatch(LikedActions.addGame(game));
   }
+
+  useEffect(() => {
+    const checkOut = likedGames.filter((item: string) => item === game.appId)
+    if (checkOut.length) {
+      setLike(true);
+    }
+  })
 
   const removeGame = (game: Games, id:number, event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     event.preventDefault();
@@ -28,7 +36,6 @@ export const Game: React.FC<Props> = ({ game }) => {
 
   const addId = (param: number) => {
     dispatch(IdAction.setId(param));
-
   }
 
   const handleLIke = () => {
