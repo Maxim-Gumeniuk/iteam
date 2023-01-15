@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as FilteringActions } from '../../features/Filtering';
@@ -6,10 +7,16 @@ import styles from './search.module.scss';
 
 export const Search: React.FC = () => {
   const [placeText, setPlaceText] = useState('');
-
+  
   const dispatch = useAppDispatch();
   const { query } = useAppSelector(state => state.filtering);
   const { games } = useAppSelector(state => state.games);
+
+  const searchItem = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      dispatch(actions.search(query))
+    }
+  }
 
   const handleQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(FilteringActions.setQuery(event.target.value))
@@ -31,6 +38,7 @@ export const Search: React.FC = () => {
       placeholder={placeText}
       value={query}
       onChange={(event) => handleQuery(event)}
+      onKeyDown={(e) => searchItem(e)}
     />
   )
 }

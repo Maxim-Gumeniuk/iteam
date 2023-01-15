@@ -25,7 +25,6 @@ function App() {
     dispatch(gamesActions.init());
   }, []);
 
-  console.log(games)
 
   if (loading) {
     return <Loader />;
