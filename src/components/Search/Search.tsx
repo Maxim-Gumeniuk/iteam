@@ -1,4 +1,3 @@
-/* eslint-disable spaced-comment */
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as FilteringActions } from '../../features/Filtering';
