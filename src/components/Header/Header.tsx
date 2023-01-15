@@ -15,7 +15,7 @@ export const Header: React.FC<Props> = ({ setCurrentPage }) => {
   return(
     <div className={styles.row}>
       <First setCurrentPage={setCurrentPage}/>
-      <Search />
+      <Search setCurrentPage={setCurrentPage}/>
       <Price 
         setOpen={setOpen} 
         setOpenForDate={setOpenForDate} 

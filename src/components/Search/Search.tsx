@@ -4,7 +4,11 @@ import { actions as FilteringActions } from '../../features/Filtering';
 import { actions } from '../../features/games';
 import styles from './search.module.scss';
 
-export const Search: React.FC = () => {
+type Props = {
+  setCurrentPage: (param: number) => void
+}
+
+export const Search: React.FC<Props> = ({ setCurrentPage }) => {
   const [placeText, setPlaceText] = useState('');
   
   const dispatch = useAppDispatch();
@@ -14,7 +18,9 @@ export const Search: React.FC = () => {
   const searchItem = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
       dispatch(actions.search(query))
+      setCurrentPage(1);
     }
+
   }
 
   const handleQuery = (event: React.ChangeEvent<HTMLInputElement>) => {

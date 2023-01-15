@@ -17,7 +17,6 @@ function App() {
 
   const lastGameIndex = currentPage * gamesPerPage;
   const firstGameIndex = lastGameIndex - gamesPerPage;
-
   const currentGames = filter.slice(firstGameIndex, lastGameIndex);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -33,6 +32,7 @@ function App() {
   if ( error ) {
     return <BadRequest />;
   }
+
   return (
       <div className="wrapper">
         <header className="header">

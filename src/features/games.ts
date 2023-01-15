@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { join } from 'path';
 import { getAllGames } from '../api/games';
 import { Games } from '../types/games';
 
@@ -33,7 +34,16 @@ export const gamesSlice = createSlice({
       state.filter = action.payload;
     },
     search: (state, action: PayloadAction<string>) => {
-        state.filter = state.games.filter(game => game.title.toLowerCase() === action.payload.toLowerCase());
+      state.filter = state.games.filter(game => game
+          .title
+          .split(' ')
+          .join('')
+          .trim()
+          .toLowerCase() === action.payload
+          .split(' ')
+          .join('')
+          .trim()
+          .toLowerCase())
         if (action.payload.trim().length === 0) {
           state.filter = state.games;
         }
